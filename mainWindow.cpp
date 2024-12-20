@@ -5,24 +5,24 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , mainWidget(new QWidget())
+    , mainWidget(new QWidget(this))
     , chessBoard(new Board(this))
 {
     ui->setupUi(this);
     QHBoxLayout * mainLayout = new QHBoxLayout();
     mainWidget->setLayout(mainLayout);
     mainLayout->addWidget(chessBoard);
-    chessBoard->setParent(this);
-    chessBoard->setMinimumSize(1000, 1000);
+    chessBoard->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     this->setCentralWidget(mainWidget);
-
-
-
 }
 
 void MainWindow::resizeEvent(QResizeEvent *){
-    mainWidget->setGeometry(this->geometry());
-    //this->centralWidget()->setGeometry(0, 0, 20, 20);
+    QSize size = this->size();
+    int side = size.height();
+    mainWidget->resize(side, side);
+    qDebug() << this->x() << this->y() << this->width() << this->height();
+    chessBoard->update();
+    qDebug() << "board dimensions: " <<  chessBoard->x() << chessBoard->y() << chessBoard->width() << chessBoard->height();
 }
 
 MainWindow::~MainWindow()
