@@ -1,9 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
 #include <QHBoxLayout>
-
+#include <QMainWindow>
+#include "board.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -20,9 +20,11 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QWidget * gameWidget;
-    QWidget * boardAndOptionsWidget;
-    QWidget * chessBoard;
+    QWidget *mainWidget;
+    QWidget *boardAndOptionsWidget;
+    QWidget *chessBoard;
     void setupBoard(QColor *, QColor *);
+protected:
+    void resizeEvent(QResizeEvent *) override;
 };
 #endif // MAINWINDOW_H
