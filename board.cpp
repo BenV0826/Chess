@@ -58,15 +58,14 @@ void Board::paintEvent(QPaintEvent * event){
                 painter.setPen(labelColor);
                 QRect textRect(square.x(), square.y(), squareSize * 0.25, squareSize * 0.25);
                 painter.drawText(textRect, Qt::AlignLeft, " " + QString::number(row + 1));
-                painter.setPen(Qt::black);
             }
             if (row == 7) {
                 painter.setPen(labelColor);
+                char label = col + 97;
                 QRect textRect(square.right() - squareSize * 0.25, square.bottom() - squareSize * 0.25, squareSize * 0.25, squareSize * 0.25);
-                painter.drawText(textRect, Qt::AlignRight | Qt::AlignBottom, QString::number(col + 1) + " ");
-                painter.setPen(Qt::black);
-
+                painter.drawText(textRect, Qt::AlignRight | Qt::AlignBottom, QString(label) + " ");
             }
+            painter.setPen(Qt::black);
         }
     }
 }

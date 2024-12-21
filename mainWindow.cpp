@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     QHBoxLayout * mainLayout = new QHBoxLayout();
     mainWidget->setLayout(mainLayout);
-    mainLayout->addWidget(chessBoard);
+    mainLayout->addWidget(chessBoard, Qt::AlignHCenter);
     chessBoard->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     this->setCentralWidget(mainWidget);
 }
