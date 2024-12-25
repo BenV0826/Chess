@@ -12,11 +12,11 @@ private :
 
 public:
     explicit Board(QWidget * parent = nullptr);
-    void setBoard(QColor, QColor);
 
 protected:
     void paintEvent(QPaintEvent * event) override ;
     void mousePressEvent(QMouseEvent * event) override;
+    QSize sizeHint() const override;
 };
 
 #endif // BOARD_H

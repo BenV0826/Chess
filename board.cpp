@@ -69,3 +69,7 @@ void Board::paintEvent(QPaintEvent * event){
         }
     }
 }
+
+QSize Board::sizeHint() const {
+    return QSize(800, 800); // Preferred initial size of the chessboard
+}
