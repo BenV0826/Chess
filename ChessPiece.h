@@ -2,20 +2,22 @@
 #define CHESSPIECE_H
 #include <QWidget>
 
-class ChessPiece : public QWidget
+class ChessPiece
 {
-public:
-    ChessPiece(QWidget *parent = nullptr);
-    ChessPiece(int row, int column, QWidget *parent = nullptr);
-    enum Type { Pawn, Knight, Bishop, Rook, Queen, King };
-    Type type;
-    std::pair<int, int> getPosition();
-    std::vector<int> getPattern() const;
-    bool getColor();
-
 private:
     std::pair<int, int> *position;
+    std::vector<int> pattern;
     bool color; // false == black | true == white
+    enum Type { Pawn, Knight, Bishop, Rook, Queen, King };
+public:
+    ChessPiece(Type);
+    Type type;
+    std::pair<int, int> getPosition();
+
+    bool getColor();
+
+
+
 };
 
 #endif // CHESSPIECE_H
