@@ -12,12 +12,14 @@ SOURCES += \
     board.cpp \
     chessPiece.cpp \
     main.cpp \
-    mainWindow.cpp
+    mainWindow.cpp \
+    movegenerator.cpp
 
 HEADERS += \
     ChessPiece.h \
     board.h \
-    mainWindow.h
+    mainWindow.h \
+    movegenerator.h
 
 FORMS += \
     mainWindow.ui
